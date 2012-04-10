@@ -71,20 +71,3 @@ Tools
 
     Redmine
     Jenkins
-
-
-********************************************************************************
-SYSTEM REQUIREMENTS
-********************************************************************************
-- Adobe ColdFusion 9.0.1 >
-- Railo Latest
-- Session Scope Enabled
-
-
-AS ALWAYS, VISIT THE SITE FOR THE LATEST DOCUMENTATION
-
-******************************************************************************** 
-THE DAILY BREAD
-********************************************************************************
-
- "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
