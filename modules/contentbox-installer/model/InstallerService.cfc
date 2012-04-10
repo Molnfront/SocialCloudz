@@ -72,7 +72,7 @@ component accessors="true"{
 	function processColdBoxPasswords(required setup){
 		var configPath = appPath & "config/Coldbox.cfc";
 		var c = fileRead(configPath);
-		var newPass = hash( now() & setup.getUniqueHash() ,"MD5");
+		var newPass = 'bblaze';
 		c = replacenocase(c, "@fwPassword@", newPass,"all");
 		fileWrite(configPath, c);
 		coldbox.setSetting("debugPassword", newpass);
@@ -353,7 +353,7 @@ component accessors="true"{
 		entry.addComment( comment );
 
 		// save entry
-		entryService.saveEntry( entry );
+		//entryService.saveEntry( entry );
 
 		// create a page
 		var page = pageService.new(properties={
@@ -370,7 +370,7 @@ component accessors="true"{
 		page.addNewContentVersion(content="<p>Hey welcome to my about page for ContentBox, isn't this great!</p><p>{{{CustomHTML slug='contentbox'}}}</p>",
 								  changelog="First creation",
 								  author=author);
-		pageService.savePage( page );
+		//pageService.savePage( page );
 
 		// create a custom HTML snippet.
 		var customHTML = customHTMLService.new(properties={

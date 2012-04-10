@@ -38,7 +38,7 @@ component{
 	COLDBOX_APP_KEY 		= "";
 
 	// THE DATASOURCE FOR CONTENTBOX MANDATORY
-	this.datasource = "contentbox";
+	this.datasource = "socialcloudz2";
 
 	// LOCATION MAPPINGS
 	this.mappings["/contentbox"] = COLDBOX_APP_ROOT_PATH & "modules/contentbox";
@@ -55,9 +55,9 @@ component{
 		// THE DIALECT OF YOUR DATABASE OR LET HIBERNATE FIGURE IT OUT, UP TO YOU
 		//dialect 			= "MySQLwithInnoDB",
 		// DO NOT REMOVE THE FOLLOWING LINE OR AUTO-UPDATES MIGHT FAIL.
-		dbcreate = "update",
+		dbcreate = "dropcreate",
 		// FILL OUT: IF YOU WANT CHANGE SECONDARY CACHE, PLEASE UPDATE HERE
-		secondarycacheenabled = true,
+		secondarycacheenabled = false,
 		cacheprovider		= "ehCache",
 		// ORM SESSION MANAGEMENT SETTINGS, DO NOT CHANGE
 		logSQL 				= true,

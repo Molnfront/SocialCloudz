@@ -42,7 +42,7 @@ component {
 		
 		// PARENT APPLICATION ROUTING IF IN TAKE OVER MODE. YOU CAN CUSTOMIZE THIS IF YOU LIKE.
 		// THIS MEANS THAT IF YOU WANT TO EXECUTE PARENT EVENTS YOU NEED TO PREFIX THEM WITH '/parent'
-		parentSESPrefix = "/parent";
+		parentSESPrefix = "/app";
 		
 		// CB UI SES Routing
 		routes = [
@@ -84,7 +84,7 @@ component {
 			
 			{pattern="/:pageSlug", handler="page", action="index"},
 			// Home Pattern  xc
-			{pattern="/", handler="blog", action="index" }
+			//{pattern="/", handler="blog", action="index" }
 		];	
 		
 		// CB UI Module Conventions
@@ -163,7 +163,7 @@ component {
 			}
 			
 			// change the default event
-			controller.setSetting("DefaultEvent","contentbox-ui:blog");
+			controller.setSetting("DefaultEvent","general.index");
 		}
 	}
 		

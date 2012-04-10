@@ -65,6 +65,7 @@ limitations under the License.
 		};
 		
 		// Map Bindings below
+		mapPath("coldbox.system.orm.hibernate.criterion.Restrictions");
 	}	
 </cfscript>
 </cfcomponent>

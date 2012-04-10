@@ -25,7 +25,7 @@ limitations under the License.
 <cfscript>
 	// Configure ColdBox Application
 	function configure(){
-
+	
 		// coldbox directives
 		coldbox = {
 			//Application Setup
@@ -33,20 +33,19 @@ limitations under the License.
 
 			//Development Settings
 			debugMode				= false,
-			debugPassword			= "@fwPassword@",
-			reinitPassword			= "@fwPassword@",
+			//debugPassword			= "bblaze",
+			//reinitPassword			= "bblaze",
 			handlersIndexAutoReload = false,
 
 			//Implicit Events
 			defaultEvent			= "General.index",
-			requestStartHandler		= "",
-			requestEndHandler		= "",
-			applicationStartHandler = "",
-			applicationEndHandler	= "",
-			sessionStartHandler 	= "",
-			sessionEndHandler		= "",
-			missingTemplateHandler	= "",
-
+			requestStartHandler		= "Main.onRequestStart",
+			requestEndHandler		= "Main.onRequestEnd",
+			applicationStartHandler = "Main.onAppInit",
+			sessionStartHandler 	= "Main.onSessionStart",
+			sessionEndHandler		= "Main.onSessionEnd",
+			missingTemplateHandler	= "Main.onMissingTemplate",
+			
 			//Extension Points
 			UDFLibraryFile 				= "includes/helpers/ApplicationHelper.cfm",
 			coldboxExtensionsLocation 	= "",
@@ -56,29 +55,31 @@ limitations under the License.
 			layoutsExternalLocation 	= "",
 			handlersExternalLocation  	= "",
 			requestContextDecorator 	= "",
-
+			
 			//Error/Exception Handling
-			exceptionHandler		= "",
-			onInvalidEvent			= "",
+			exceptionHandler		= "Main.onException",
+			onInvalidEvent			= "Main.onInvalidEvent",
 			customErrorTemplate		= "",
-
+				
 			//Application Aspects
 			handlerCaching 			= true,
 			eventCaching			= true
 		};
-
+		
 		// custom settings
 		settings = {
-
+			PagingMaxRows = 3,
+			PagingBandGap = 10
 		};
 
+		
 		// environment settings, create a detectEnvironment() method to detect it yourself.
 		// create a function with the name of the environment so it can be executed if that environment is detected
 		// the value of the environment is a list of regex patterns to match the cgi.http_host.
 		environments = {
-			development = "^cf9.,^railo.,.local$"
+			development = "^scdevsite."
 		};
-
+		
 		// Module Directives
 		modules = {
 			//Turn to false in production
@@ -86,21 +87,36 @@ limitations under the License.
 			// An array of modules names to load, empty means all of them
 			include = [],
 			// An array of modules names to NOT load, empty means none
-			exclude = []
+			exclude = [] 
 		};
-
+		
 		//LogBox DSL
 		logBox = {
 			// Define Appenders
 			appenders = {
-				coldboxTracer = { class="coldbox.system.logging.appenders.ColdboxTracerAppender" }
+				coldboxTracer = { class="coldbox.system.logging.appenders.ColdboxTracerAppender" },
+				// Database Appender Registration
+		        dbAppender = {
+		            class="coldbox.system.logging.appenders.DBAppender",
+		            properties = {
+		                // The datasource to connect to
+		                dsn = "socialcloudz", 
+		                // The table to log to
+		                table="api_logs", 
+		                // If the table does not exist, then create it
+		                autocreate=true, 
+		                // The type to use for long text inserting.
+		                textDBType="longtext"
+		            }
+		        }
 			},
+			
 			// Root Logger
-			root = { levelmax="INFO", appenders="*" }
+			root = { levelmax="INFO", appenders="*" },
 			// Implicit Level Categories
 			//info = [ "coldbox.system" ]
 		};
-
+		
 		//Layout Settings
 		layoutSettings = {
 			defaultLayout = "Layout.Main.cfm"
@@ -113,7 +129,15 @@ limitations under the License.
 				enabled = true
 			}
 		};
-
+		
+		//i18n & Localization
+		i18n = {
+			defaultResourceBundle = "includes/i18n/main",
+			defaultLocale = "en_US",
+			localeStorage = "session",
+			unknownTranslation = "**NOT FOUND**"		
+		};
+		
 		//Register interceptors as an array, we need order
 		interceptors = [
 			//SES
@@ -129,10 +153,10 @@ limitations under the License.
 		coldbox.handlerCaching = false;
 		coldbox.reinitpassword = "";
 		coldbox.debugpassword = "";
+		coldbox.debugmode = true;
 		//wirebox.singletonreload = true;
 
-		//Debugger Settings
-		debugger.showRCPanel = false;
+
 
 		// ses debugging
 		logbox.appenders.files={class="coldbox.system.logging.appenders.RollingFileAppender",
@@ -144,6 +168,6 @@ limitations under the License.
 		//logbox.debug = [ "coldbox.system.aop" ];
 
 	}
-
+	
 </cfscript>
 </cfcomponent>
