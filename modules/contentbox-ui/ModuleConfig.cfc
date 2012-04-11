@@ -84,7 +84,7 @@ component {
 			
 			{pattern="/:pageSlug", handler="page", action="index"},
 			// Home Pattern  xc
-			//{pattern="/", handler="blog", action="index" }
+			{pattern="/", handler="blog", action="index" } 
 		];	
 		
 		// CB UI Module Conventions

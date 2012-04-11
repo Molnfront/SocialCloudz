@@ -33,8 +33,8 @@ limitations under the License.
 
 			//Development Settings
 			debugMode				= false,
-			//debugPassword			= "bblaze",
-			//reinitPassword			= "bblaze",
+			debugPassword			= "bblaze",
+			reinitPassword			= "bblaze",
 			handlersIndexAutoReload = false,
 
 			//Implicit Events
@@ -141,7 +141,7 @@ limitations under the License.
 		//Register interceptors as an array, we need order
 		interceptors = [
 			//SES
-			{class="coldbox.system.interceptors.SES"}
+			{class="coldbox.system.interceptors.SES"},
 		];
 
 	}

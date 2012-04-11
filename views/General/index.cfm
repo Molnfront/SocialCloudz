@@ -159,22 +159,6 @@
 			: Where you create all your views and viewlets
 		</li>
 	</ol>
-	<h1>ORM Examples</h1>
-	Using injected ORM objects 
-	<cfscript>
-		rc.author.setFirstName('b');
-		rc.author.setLastName('blaze');
-		rc.book.setID('1');
-		rc.book.setTitle('title');
-		rc.book.setAuthor(rc.author);
-	</cfscript>
-	Book Title - 
-	#rc.book.getTitle()# - #rc.book.getID()#<br><br> 
-	Author - 
-	#rc.book.getAuthor().getFirstName()# #rc.book.getAuthor().getLastName()#<bR><br>
-	Author via Custom Bean function - #rc.book.getAuthor().getName()#
-	
-	<!--- todo: checkout ORM entity service! --->
 	
 	<h1>Using i18n</h1>
 	<cfset rc.localeUtils = getPlugin('i18n')>
@@ -195,13 +179,6 @@
 <cfset orderDetails[2] = "1-800-555-5555">
 
 <cfoutput>#oRB.formatRBString(getResource('confirmMessage'),orderDetails)#</cfoutput>
-
-<h1>Gravatar Module</h1>
-	#getMyPlugin('Avatar').renderAvatar('bblaze@email.unc.edu',100)#
-	
-
-<h1>Solitary Security</h1>
-<a href="index.cfm/Solitary">Check it out</a>
 
 <h1>Freshbooks API Wrapper</h1>
 <cfscript>

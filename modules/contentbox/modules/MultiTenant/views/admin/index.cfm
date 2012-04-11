@@ -26,23 +26,12 @@
 		<!--- Body Header --->
 		<div class="header">
 			<img src="/includes/images/ortus_circle_small.gif" alt="ortus" width="30" height="30" title="Ortus Solutions, Corp" />
-			Hello Module
+			Site Manager
 		</div>
 		<!--- Body --->
 		<div class="body" id="mainBody">
 
-			<!--- Logo --->
-			<div class="center">
-				<img src="/includes/images/ContentBox_300.png" alt="logo"/><br/>
-				v.#getModuleSettings('contentbox').version# <br/>
-				(Codename: <a href="#getModuleSettings("contentbox").settings.codenameLink#" target="_blank">#getModuleSettings("contentbox").settings.codename#</a>)
-				<br/><br/>
-			</div>
-
-			<p>
-				Hi and welcome to the Hello module, ContentBox says <strong>Hello Buddy!</strong>, what you expected more?
-			</p>
-
+			<Cfdump var='#prc.sites#'>
 
 		</div>
 	</div>
