@@ -285,7 +285,7 @@ Description :
 					variables._counter  = x;
 					variables[ arguments.collectionAs ] = arguments.collection[x];
 					// prepend the delim
-					if ( x NEQ arguments.collectionStartRow ) {
+					if ( x NEQ 1 ) {
 						buffer.append( arguments.collectionDelim );
 					}					
 					// render item composite

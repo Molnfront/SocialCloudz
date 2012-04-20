@@ -142,7 +142,10 @@ limitations under the License.
 		interceptors = [
 			//SES
 			{class="coldbox.system.interceptors.SES"},
+		
+			{class="#appMapping#.interceptors.siteManager"}	
 		];
+
 
 	}
 

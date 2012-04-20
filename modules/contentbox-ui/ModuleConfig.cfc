@@ -42,7 +42,7 @@ component {
 		
 		// PARENT APPLICATION ROUTING IF IN TAKE OVER MODE. YOU CAN CUSTOMIZE THIS IF YOU LIKE.
 		// THIS MEANS THAT IF YOU WANT TO EXECUTE PARENT EVENTS YOU NEED TO PREFIX THEM WITH '/parent'
-		parentSESPrefix = "/app";
+		parentSESPrefix = "/home";
 		
 		// CB UI SES Routing
 		routes = [
